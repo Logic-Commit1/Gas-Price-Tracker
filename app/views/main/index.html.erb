@@ -1,0 +1,85 @@
+<h1>Gas Prices here...</h1>
+
+<% if user_signed_in? %>
+<% if current_user && current_user.admin %>
+<p> Welcome, Admin.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uploader</th>
+      <th>Uploads</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--<tr>
+          <td>Product 1</td>
+          <td>$10.99</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <td>Product 2</td>
+          <td>$15.99</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>Product 3</td>
+          <td>$12.99</td>
+          <td>10</td>
+        </tr>
+        -->
+    <% @users.each do |user| %>
+    <% unless user.admin %>
+    <tr>
+      <td><%= user.mobile_number %></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+
+</table>
+
+
+
+<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+
+<% else%>
+<p> Welcome, <%= current_user.mobile_number %></p>
+<button id="open-modal-btn">Upload Gas Price</button>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Upload Gas Price</h2>
+    <p>Current Location: 10th Ave, D Aquino St, Grace Park West, Manila, 1400 Metro Manila</p>
+    <label for="company">Petroleum Company:</label>
+    <select id="company" name="company">
+      <option value="">Petron</option>
+      <option value="">Shell</option>
+      <option value="">Seaoil</option>
+      <option value="">Ptt</option>
+    </select>
+    <br><br>
+    <label for="fuel-type">Fuel Type:</label>
+    <select id="fuel-type" name="fuel-type">
+      <option value="">Diesel</option>
+      <option value="">Unleaded</option>
+      <option value="">Premium</option>
+    </select>
+    <br><br>
+    <button type="submit">Submit</button>
+  </div>
+</div>
+<br>
+<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<% end %>
+<% else %>
+<p> Hello, Stranger </p>
+<%= link_to "Sign up", register_path %>
+<%= link_to "Log in", login_path %>
+
+<% end %>
+
+
+<!--
+-->
