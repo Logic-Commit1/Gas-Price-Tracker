@@ -28,6 +28,11 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem "devise"
+
+## File Upload
+gem 'carrierwave'
+gem 'carrierwave-aws'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
