@@ -1,0 +1,25 @@
+<%= render 'nav_links' %>
+
+<table>
+    <thead>
+        <th>I.D.</th>
+        <th>Mobile Number</th>
+        <th>Uploads</th>
+    </thead>
+    <tbody>
+    
+    <% @users.each do |user| %>
+      <% unless user.admin %>
+      <tr>
+        <%= render user%>
+        <td>
+          <%= link_to "View", user %>
+        </td>
+      </tr>
+    
+    <% end %>
+    <% end %>
+    </tbody>
+</table>
+
+<%= link_to "Log out", destroy_user_session_path, method: :delete %>

@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'user/sessions' }, path_names: { sign_in: 'login',
+ 
+
+  authenticated :user, ->(user) { user.admin? } do    
+    get 'admin', to: 'admin#index', as:'admin'
+    get 'admin/users'
+    get 'admin/uploads'
+    get 'admin/show_user', to: 'admin#show_user'
+    get 'admin/show_upload'
+   
+
+  end 
+  
+
+  devise_for :users, controllers: { sessions: 'user/sessions' }, path_names: { 
+  sign_in: 'login',
   sign_out: 'logout',
   password: 'secret',
   confirmation: 'verification',
@@ -13,9 +27,13 @@ Rails.application.routes.draw do
     get '/users/logout', to: 'user/sessions#destroy'
     post '/users/login', to: 'user/sessions#create'
   end
+  
+  # scope :admin do
+  # end
+  
+  
+  resources :users
+  resources :uploads
+  
   root 'main#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Uploads</h1>
+
+<div id="uploads">
+  <% @uploads.each do |upload| %>
+  <table>
+    <th>
+    <%= render upload %>
+    <p>
+      <%= upload %>
+    </p>
+    <p>
+      <%= link_to "Show this upload", upload %>
+    </p>
+    </th>
+  </table>
+  <% end %>
+</div>
+
+<%= link_to "New upload", new_upload_path %>

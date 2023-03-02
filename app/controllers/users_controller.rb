@@ -1,10 +1,20 @@
-
-class MainController < ApplicationController
-  def index()
+class UsersController < ApplicationController
+  def index
     @users = User.all
     @uploads = Upload.all
-    @upload = Upload.new
-    
+  end
+
+  def show
+    @uploads = Upload.all
+    @user = User.find(params[:id])
+  end
+
+  def destroy
+    @status_update = User.find(params[:id])
+    if @status_update.present?
+      @status_update.destroy
+    end
+    redirect_to admin_path
   end
 
   # def show
@@ -30,8 +40,6 @@ class MainController < ApplicationController
     # end
   end
 
-  # DELETE /uploads/1 or /uploads/1.json
-  def destroy
-    
-  end
+
+  
 end

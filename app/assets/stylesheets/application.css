@@ -25,12 +25,20 @@
     text-align: center;
  } */
 
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  background: #f6f6f6;
+}
+
 .form {
     width: 300px;
     /* margin: 0 auto; */
     /* text-align: left; */
  }
 
+
+/*    Modal   */
  .modal {
    display: none;
    position: fixed;
@@ -65,3 +73,30 @@
    text-decoration: none;
    cursor: pointer;
  }
+
+/* Style the table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Set the style for the table head */
+th {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 8px;
+}
+
+/* Set the style for the table cells */
+td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+/* Set the style for the table rows */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

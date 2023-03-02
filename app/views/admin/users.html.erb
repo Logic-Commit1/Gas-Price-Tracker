@@ -1,0 +1,22 @@
+<h1>Hypermilers Users</h1>
+
+<table>
+  <thead>
+    <th>I.D.</th>
+    <th>Mobile Number</th>
+    <th>Show</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user|%>
+      <% unless user.admin %>
+      <tr>
+        <%= render user%>
+        <td>
+          <%= link_to "View", user %>
+        </td>
+      </tr>
+      
+      <% end%>
+    <% end %>
+  </tbody>
+</table>

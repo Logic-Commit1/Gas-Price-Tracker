@@ -1,0 +1,38 @@
+<%= form_with model: upload, url: "/uploads" do |form| %>
+  
+
+  <div>
+   <!-- <%= form.label :current_location, style: "display: block" %>-->
+   <!-- <%= form.text_field :current_location, value: "Current Location: Metro Manila, Caloocan City" %> -->  
+  </div>
+<br>
+  <div>
+    <%= form.label :petroleum_company_name, style: "display: block" %>
+    <%= form.text_field :petroleum_company_name %>
+  </div>
+
+  <div>
+    <%= form.label :station_id, style: "display: block" %>
+    <%= form.number_field :station_id %>
+  </div>
+
+  <div>
+    <%= form.label :fuel_type, style: "display: block" %>
+    <%= form.text_field :fuel_type %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <!--<div>
+    <%= form.label :photo, style: "display: block" %>
+    <%= form.file_field :photo %>
+  </div>
+-->
+<br><br>
+  <div>
+    <%= form.submit "Upload" %>
+  </div>
+<% end %>
+<%%>

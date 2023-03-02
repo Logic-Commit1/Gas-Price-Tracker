@@ -1,3 +1,5 @@
+
+
 const modal = document.getElementById("modal");
 const openModalBtn = document.getElementById("open-modal-btn");
 const closeBtn = document.getElementsByClassName("close-btn")[0];
