@@ -29,7 +29,8 @@ class UploadsController < ApplicationController
         format.html { redirect_to users_path, notice: "Upload was successfully created." }
         format.json { render :show, status: :created, location: @upload }
       else
-        p 'nothing'
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @upload.errors, status: :unprocessable_entity }
       end
     end
   end

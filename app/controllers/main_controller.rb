@@ -4,6 +4,12 @@ class MainController < ApplicationController
     @users = User.all
     @uploads = Upload.all
     @upload = Upload.new
+    if user_signed_in? && current_user.admin 
+      redirect_to admin_path
+    elsif user_signed_in? && !current_user.admin
+      redirect_to users_path
+    else 
+    end
     
   end
 

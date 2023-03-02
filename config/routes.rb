@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   # end
   
   
-  resources :users
+  resources :users do 
+    get "show_upload", to: "users#show_upload"
+  end
   resources :uploads
   
   root 'main#index'

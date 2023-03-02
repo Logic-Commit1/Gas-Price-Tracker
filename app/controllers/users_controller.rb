@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def show_upload 
+    @uploads = Upload.all
+    user_uploads
+  end
+
   def destroy
     @status_update = User.find(params[:id])
     if @status_update.present?
@@ -39,7 +44,13 @@ class UsersController < ApplicationController
     #   end
     # end
   end
+  
+  private
 
+  def user_uploads 
+    @upload = current_user.uploads.find_by(id: params[:id])
+    redirect_to users_path, notice: "Not authorized" if @upload.nil?
+  end
 
   
 end

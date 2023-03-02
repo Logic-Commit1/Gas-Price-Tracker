@@ -1,9 +1,10 @@
+<%= render 'admin/nav_links' %>
+
 <p style="color: green"><%= notice %></p>
 
 <%= render @user, upload: @uploads %>
-<p>heree</p>
 <div>  
-  <%= link_to "Back to Dashboard", users_path%>
+  <%= link_to "Back to Dashboard", admin_path%>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <%= link_to "Destroy this user", @user, method: :delete %>
 </div>

@@ -8,16 +8,18 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= javascript_include_tag 'application' %>
     
   </head>
+  
 
   <body>
     <div class="container">
-      <p class="notice"><%= notice %></p>
+      <p class="notice" style = "color: green" ><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= turbo_frame_tag "modal" %>
       <%= yield %>
     </div>
+   
   </body>
+  
 </html>
