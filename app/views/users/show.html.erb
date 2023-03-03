@@ -1,10 +1,20 @@
+<% if current_user.admin %>
+
 <%= render 'admin/nav_links' %>
 
 <p style="color: green"><%= notice %></p>
-
 <%= render @user, upload: @uploads %>
 <div>  
   <%= link_to "Back to Dashboard", admin_path%>
 
-  <%= link_to "Destroy this user", @user, method: :delete %>
+  <%= button_to "Destroy this user", @user, method: :delete %>
 </div>
+
+<% else %>
+  <%= render @user, upload: @uploads %>
+
+  <div>
+    <%= link_to "Back", root_path%>
+  </div>
+
+<% end %>

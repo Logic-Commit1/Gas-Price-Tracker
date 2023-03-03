@@ -66,6 +66,6 @@ class UploadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def upload_params
-      params.require(:upload).permit(:petroleum_company_name, :station_id, :fuel_type, :user_id)
+      params.require(:upload).permit(:petroleum_company_name, :station_id, :fuel_type, :user_id, :photo)
     end
 end

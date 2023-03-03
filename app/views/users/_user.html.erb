@@ -1,2 +1,26 @@
- <td><%= user.id %></td>    
- <td><%= user.mobile_number %></td>
+ 
+ <strong>User Id: </strong><td><%= user.id %></td><br><br>
+ <strong>Mobile Number: </strong><td><%= user.mobile_number %></td>     <br><br>
+ 
+ <h3>Uploads</h3>
+ <table>
+   <thead>
+        <th>Company name</th>
+        <th>Station Id</th>
+        <th>Fuel Type</th>
+        <th>Time Uploaded</th>
+        <th>Photo</th>
+     </thead>
+   <% @uploads.each do |x| %>
+     <% if x.user_id == user.id %>
+     <tr>
+   <td> <%= x.petroleum_company_name %> </td>
+   <td> <%= x.station_id %> </td>
+   <td> <%= x.fuel_type %> </td>
+   <td> <%= x.created_at %> </td>
+   <td> <%= image_tag x.photo.url %> </td>
+
+     </tr>
+    <% end %>  
+   <% end %>
+ </table>

@@ -2,7 +2,7 @@
 
 <p> Welcome, <%= current_user.mobile_number %></p>
 <br>
-<%= link_to "My Uploads" %>
+<%= link_to "My Uploads", current_user %>
 <%= link_to "Upload Gas Price" , new_upload_path, data: { turbo_frame: "modal" } %>
 <br>
    
