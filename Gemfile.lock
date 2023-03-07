@@ -266,6 +266,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  aws-sdk-s3 (~> 1.119)
   bootsnap
   capybara
   carrierwave

@@ -18,7 +18,9 @@
    <td> <%= x.station_id %> </td>
    <td> <%= x.fuel_type %> </td>
    <td> <%= x.created_at %> </td>
-   <td> <%= image_tag x.photo.url %> </td>
+   <% if x.photo.present?%>
+   <td> <%= image_tag x.photo.thumb.url %> </td>
+   <% end %>
 
      </tr>
     <% end %>  

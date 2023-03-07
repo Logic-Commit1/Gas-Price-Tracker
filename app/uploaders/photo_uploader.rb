@@ -1,4 +1,13 @@
 class PhotoUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
+
+
+  process resize_to_fit: [800, 800]
+
+  version :thumb do
+    process resize_to_fill: [200,200]
+  end
+  
   if Rails.env.production?
     storage :aws
   else
@@ -21,9 +30,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     "#{secure_token}.#{file.extension}" if original_filename
   end
 
-  version :thumb do
-    process resize_to_fit: [200,200]
-  end
+  
 
   protected
   def secure_token(length = 16)
