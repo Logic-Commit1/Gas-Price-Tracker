@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @uploads = Upload.all
+    @loc = request.location
   end
 
   def show

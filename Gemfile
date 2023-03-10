@@ -63,3 +63,5 @@ group :test do
 end
 
 gem "aws-sdk-s3", "~> 1.119"
+
+gem "geocoder", "~> 1.8"
